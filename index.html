@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%252300f2fe' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 16 4-4-4-4'/%3E%3Cpath d='m6 8-4 4 4 4'/%3E%3Cpath d='m14.5 4-5 16'/%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gayathri B | AI Developer & RAG Engineer Portfolio</title>
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      /* Simple initial loading styling to make app feel super premium even on slow loads */
+      body {
+        margin: 0;
+        background: #080b11;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #080b11;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out, visibility 0.5s;
+      }
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(0, 242, 254, 0.1);
+        border-radius: 50%;
+        border-top-color: #00f2fe;
+        animation: spin 1s ease-in-out infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading-screen" id="app-loading-screen">
+        <div class="loader"></div>
+        <p style="margin-top: 20px; font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 2px; color: #00f2fe; text-transform: uppercase;">Loading Portfolio</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Remove load screen after React takes over
+      window.addEventListener('DOMContentLoaded', () => {
+        const loader = document.getElementById('app-loading-screen');
+        if (loader) {
+          setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+          }, 300);
+        }
+      });
+    </script>
+  </body>
+</html>
